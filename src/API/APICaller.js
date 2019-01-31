@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-
 // const APIKEY = "3f2f1cbaa4f92ea38cb1997083f92891";
-const URL = "http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&APPID=3f2f1cbaa4f92ea38cb1997083f92891";
+const APIKEY = process.env.REACT_APP_ID;
+const URL = "https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&&APPID=" + APIKEY;
 
 class APICaller extends Component {
 	constructor(props) {
@@ -12,6 +12,10 @@ class APICaller extends Component {
 			items : [],
 			temp: null
 		};
+
+		console.log(process.env.REACT_APP_ID);
+		console.log(process.env.NODE_ENV);
+	
 	}
 
 	componentDidMount() {
@@ -63,12 +67,17 @@ class APICaller extends Component {
 					isLoaded:true,
 					error
 				});
+			}).catch(error =>{
+				this.setState({
+					isLoaded:true,
+					error
+				});
 			});
 	}
 
 	render() { 
 		const {error, isLoaded, items} = this.state;
-		// console.log(typeof items);
+		console.log(error);
 
 		if(error){
 			return <div>Error : {error.message}</div>;
