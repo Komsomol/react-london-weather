@@ -1,28 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+
+import {TweenMax } from "gsap/TweenMax";
+import Youtube from "./components/Youtube";
+import APICaller from "./API/APICaller";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+	constructor(props){
+		super(props);
+
+		this.elem = null;
+		this.tween = null;
+
+	}
+
+	componentDidMount() {
+		console.log("woohoo");
+
+		this.tween = TweenMax.to(this.elem, 1 , {y:250});
+	}
+
+	render() {
+		return (
+			<div className="App" >
+				<div className="TemperatureOutput" ref={div => this.elem = div}>
+					<APICaller />
+				</div>
+
+				<div className="YoutubePlayerBack">
+					<div className="YoutubePlayer">
+						<Youtube id="9hoO8cKWyT4"/>
+					</div>
+				</div>
+
+			</div>
+		);
+	}
 }
 
 export default App;
