@@ -15,8 +15,6 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		console.log("woohoo");
-
 		this.tween = TweenMax.to(this.elem, 1 , {y:250});
 	}
 
@@ -32,7 +30,7 @@ class App extends Component {
 						<Youtube id="9hoO8cKWyT4"/>
 					</div>
 				</div>
-
+			
 			</div>
 		);
 	}

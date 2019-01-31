@@ -1,6 +1,12 @@
+Body{
+  overflow: hidden;
+}
+
 .App {
   text-align: center;
 }
+
+/* Video stuff */
 
 .YoutubePlayerBack{
   position: absolute;
@@ -21,6 +27,21 @@
   height: 100%;
 }
 
+@media (min-aspect-ratio: 16/9) {
+  .YoutubePlayerBack { 
+    height: 300%; 
+    top: -100%; 
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .YoutubePlayerBack { 
+    width: 300%; 
+    left: -100%; 
+  }
+} 
+
+/* Temprature read out */
+
 .TemperatureOutput{
   z-index: 1;
   color:white;
@@ -34,11 +55,4 @@
 
 .TemperatureConditions{
     text-transform: capitalize;
-}
-
-@media (min-aspect-ratio: 16/9) {
-  .YoutubePlayerBack { height: 300%; top: -100%; }
-}
-@media (max-aspect-ratio: 16/9) {
-  .YoutubePlayerBack { width: 300%; left: -100%; }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// const APIKEY = "3f2f1cbaa4f92ea38cb1997083f92891";
+
 const APIKEY = process.env.REACT_APP_ID;
 const URL = "https://api.openweathermap.org/data/2.5/weather?q=London&units=metric&&APPID=" + APIKEY;
 
@@ -12,10 +12,6 @@ class APICaller extends Component {
 			items : [],
 			temp: null
 		};
-
-		console.log(process.env.REACT_APP_ID);
-		console.log(process.env.NODE_ENV);
-	
 	}
 
 	componentDidMount() {
@@ -39,7 +35,6 @@ class APICaller extends Component {
 	componentWillUnmount() {
 		clearInterval(this.intervalId);
 	}
-
 
 	loadData(){
 		console.log("loadData");
